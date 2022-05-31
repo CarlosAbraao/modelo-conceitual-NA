@@ -1,0 +1,12 @@
+package com.carlosdev.domain;
+
+
+
+public class Categoria {
+	
+	private Integer id;
+
+	
+	
+
+}
