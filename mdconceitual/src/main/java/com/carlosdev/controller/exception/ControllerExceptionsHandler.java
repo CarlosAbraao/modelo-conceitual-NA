@@ -14,7 +14,7 @@ import com.carlosdev.service.exception.ObjectNotFoundException;
 public class ControllerExceptionsHandler {
 	
 	
-	@ExceptionHandler
+	@ExceptionHandler(ObjectNotFoundException.class)
 	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, ServletRequest request){
 		
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(),System.currentTimeMillis());
