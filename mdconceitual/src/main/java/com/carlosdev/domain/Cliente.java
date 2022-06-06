@@ -7,34 +7,54 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import com.carlosdev.domain.enums.TipoCliente;
 
+
+@Entity
 public class Cliente implements Serializable{
 	
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String email;
 	private String cpfOuCnpj;
 	// TIPO CLIENTE VAI RECEBER UM NUMERO INTEIRO
 	private Integer tipoCliente;
 	
+	
+	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	// VOU CRIAR UMA LISTA DE TELEFONES COM A COLEÇÃO "SET" QUE N ACEITA REPETIÇÕES
 	// ISSO PODERIA SER FEITO COM UMA CLASSE INDIVIDUAL
 	
+	//CRIANDO UMA TABELA BASEADA EM COLEÇÕES
+	@ElementCollection
+	@CollectionTable(name = "TELEFONE")		//DANDO UM NOME PARA COLUNA TELEFONE
 	private Set<String> telefones = new HashSet<>();
 	
 	public Cliente() {
 		
 	}
 
-	public Cliente(Integer id, String nome, String cpfOuCnpj, TipoCliente tipoCliente) {
+	public Cliente(Integer id, String nome,String email, String cpfOuCnpj, TipoCliente tipoCliente) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.setEmail(email);
 		this.cpfOuCnpj = cpfOuCnpj;
 		// TIPO CLIENTE VAI PASSAR O CODIGO
 		this.tipoCliente = tipoCliente.getCod();
@@ -108,10 +128,20 @@ public class Cliente implements Serializable{
 				&& Objects.equals(telefones, other.telefones) && tipoCliente == other.tipoCliente;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", cpfOuCnpj=" + cpfOuCnpj + ", tipoCliente=" + tipoCliente
-				+ ", enderecos=" + enderecos + ", telefones=" + telefones + "]";
+		return "Cliente [id=" + id + ", nome=" + nome + ", email=" + email + ", cpfOuCnpj=" + cpfOuCnpj
+				+ ", tipoCliente=" + tipoCliente + ", enderecos=" + enderecos + ", telefones=" + telefones + "]";
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	   
