@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.carlosdev.domain.enums.TipoCliente;
@@ -34,6 +33,11 @@ public class Cliente implements Serializable{
 	private String cpfOuCnpj;
 	// TIPO CLIENTE VAI RECEBER UM NUMERO INTEIRO
 	private Integer tipoCliente;
+	
+	// O CLIENTE CONHECE OS PEDIDOS
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> pedidos = new ArrayList<>();
 	
 	@JsonManagedReference // O CLIENTE PODE TER ACESSO A INFORMAÇÕES DO ENDEREÇO
 	@OneToMany(mappedBy = "cliente")
@@ -61,6 +65,8 @@ public class Cliente implements Serializable{
 		this.tipoCliente = tipoCliente.getCod();
 	}
 
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -143,6 +149,14 @@ public class Cliente implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 	
 	   
