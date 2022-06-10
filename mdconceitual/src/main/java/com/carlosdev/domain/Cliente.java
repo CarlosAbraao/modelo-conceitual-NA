@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 
 import com.carlosdev.domain.enums.TipoCliente;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -38,11 +39,11 @@ public class Cliente implements Serializable{
 	// O CLIENTE CONHECE OS PEDIDOS
 	
 	
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
-	@JsonManagedReference // O CLIENTE PODE TER ACESSO A INFORMAÇÕES DO ENDEREÇO
+	 
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
