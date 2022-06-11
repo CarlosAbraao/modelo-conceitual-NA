@@ -1,14 +1,20 @@
 package com.carlosdev.controller;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.carlosdev.domain.Categoria;
 import com.carlosdev.service.CategoriaService;
@@ -28,6 +34,18 @@ public class CategoriaController {
 		Categoria obj = catService.busca(id);
 		
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	
+	@PostMapping
+	public ResponseEntity<Void> insert(@RequestBody Categoria objCategoria){
+		// VOU CRIAR UMA NOVA CATEGORIA
+		objCategoria = catService.insert(objCategoria);
+		
+		// CRIAR UM CAMINHO, UMA URI PARA A CATEGORIA CRIADA
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(objCategoria.getId()).toUri();
+		return ResponseEntity.created(uri).build();
 	}
 	
 	
