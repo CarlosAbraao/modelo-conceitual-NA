@@ -72,6 +72,12 @@ public class MdconceitualApplication implements CommandLineRunner {
 		
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria (null, "Eletrodoméstico");
+		Categoria cat3 = new Categoria(null, "Cama mesa e banho");
+		Categoria cat4 = new Categoria (null, "Automotivo");
+		Categoria cat5 = new Categoria(null, "Farmacia");
+		Categoria cat6 = new Categoria (null, "Jardinagem");
+		Categoria cat7 = new Categoria(null, "Escolar");
+		Categoria cat8 = new Categoria (null, "Cinema");
 		
 		Produto prod1 = new Produto(null, "Computador", 2400.00);
 		Produto prod2 = new Produto (null, "Impressora", 800.00);
