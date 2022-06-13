@@ -1,6 +1,9 @@
 package com.carlosdev.controller;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.carlosdev.domain.Categoria;
+import com.carlosdev.dto.CategoriaDTO;
 import com.carlosdev.service.CategoriaService;
 
 
@@ -58,6 +62,16 @@ public class CategoriaController {
 	public ResponseEntity<?>  delete(@PathVariable Integer id) {
 		catService.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping()
+	public ResponseEntity<List<CategoriaDTO>>  findAll() {
+		
+		List<Categoria> list = catService.findAll();
+		// CRIA UM OBJETO DTO BASEADO NO CONSTRUTUTOR DO DTO 
+		List<CategoriaDTO> listDTO = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+		
+		return ResponseEntity.ok().body(listDTO);
 	}
 	
 
