@@ -16,7 +16,7 @@ public class CategoriaService {
 	private CategoriaRepository catRepo;
 	
 	
-	public Categoria busca(Integer id) {
+	public Categoria find(Integer id) {
 		
 		Optional<Categoria> objCat = catRepo.findById(id);
 		
@@ -27,6 +27,15 @@ public class CategoriaService {
 	public Categoria insert(Categoria categoria) {
 		categoria.setId(null);
 		return catRepo.save(categoria);
+	}
+
+	public Categoria update(Categoria objCategoria) {
+		
+		// TESTANDO SE O ID EXISTE
+		find(objCategoria.getId());
+		
+		// ATUALIZANDO A CATEGORIA
+		return catRepo.save(objCategoria);
 	}
 	
 	
