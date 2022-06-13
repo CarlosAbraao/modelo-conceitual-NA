@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +43,8 @@ public class CategoriaController {
 	
 	
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody Categoria objCategoria){
+	public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaDTO objCategoriaDTO){
+		Categoria objCategoria = catService.fromDTO(objCategoriaDTO);
 		// VOU CRIAR UMA NOVA CATEGORIA
 		objCategoria = catService.insert(objCategoria);
 		
@@ -53,7 +56,8 @@ public class CategoriaController {
 	
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> update(@RequestBody Categoria objCategoria, @PathVariable Integer id){
+	public ResponseEntity<Void> update(@RequestBody CategoriaDTO objCategoriaDTO, @PathVariable Integer id){
+		Categoria objCategoria = catService.fromDTO(objCategoriaDTO);
 		objCategoria.setId(id);
 		objCategoria = catService.update(objCategoria);
 		return ResponseEntity.noContent().build();
