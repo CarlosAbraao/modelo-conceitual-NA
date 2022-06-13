@@ -1,13 +1,10 @@
 package com.carlosdev.controller;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,6 +51,12 @@ public class CategoriaController {
 	public ResponseEntity<Void> update(@RequestBody Categoria objCategoria, @PathVariable Integer id){
 		objCategoria.setId(id);
 		objCategoria = catService.update(objCategoria);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<?>  delete(@PathVariable Integer id) {
+		catService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
