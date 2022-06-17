@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.carlosdev.domain.Cliente;
-import com.carlosdev.domain.Cliente;
 import com.carlosdev.dto.ClienteDTO;
+import com.carlosdev.dto.ClienteNewDTO;
 import com.carlosdev.service.ClienteService;
 
 
@@ -42,8 +42,14 @@ public class ClienteController {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	
+	
+	
+	// METODO DTO QUE SALVA VARIAS INFORMAÇÕES NO BANCO
+	
+
 	@PostMapping
-	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteDTO objClienteDTO){
+	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objClienteDTO){
 		Cliente objCliente = cliService.fromDTO(objClienteDTO);
 		// VOU CRIAR UMA NOVA CATEGORIA
 		objCliente = cliService.insert(objCliente);
@@ -54,6 +60,7 @@ public class ClienteController {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	//////
 	
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Void> update(@RequestBody ClienteDTO objClienteDTO, @PathVariable Integer id){
