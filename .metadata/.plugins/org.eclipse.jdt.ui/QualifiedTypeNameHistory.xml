@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
-    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="javax.persistence.Inheritance"/>
-    <fullyQualifiedTypeName name="javax.persistence.InheritanceType"/>
-    <fullyQualifiedTypeName name="com.carlosdev.domain.Pedido"/>
-    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-    <fullyQualifiedTypeName name="javax.xml.bind.ParseConversionEvent"/>
-    <fullyQualifiedTypeName name="com.carlosdev.domain.PagamentoComCartao"/>
-    <fullyQualifiedTypeName name="com.carlosdev.repository.PedidoRepository"/>
-    <fullyQualifiedTypeName name="com.carlosdev.repository.PagamentoRepository"/>
-    <fullyQualifiedTypeName name="com.carlosdev.domain.enums.EstadoPagamento"/>
-    <fullyQualifiedTypeName name="com.carlosdev.domain.ItemPedidoPk"/>
     <fullyQualifiedTypeName name="javax.persistence.Embeddable"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
@@ -46,13 +33,10 @@
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort.Direction"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.lang.NonNull"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
-    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.Length"/>
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
     <fullyQualifiedTypeName name="com.carlosdev.dto.CategoriaDTO"/>
     <fullyQualifiedTypeName name="com.carlosdev.domain.Categoria"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="com.carlosdev.controller.exception.StandardError"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +44,20 @@
     <fullyQualifiedTypeName name="com.carlosdev.controller.exception.ValidationError"/>
     <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
     <fullyQualifiedTypeName name="org.springframework.validation.FieldError"/>
+    <fullyQualifiedTypeName name="com.carlosdev.dto.ClienteDTO"/>
+    <fullyQualifiedTypeName name="com.carlosdev.service.ClienteService"/>
+    <fullyQualifiedTypeName name="java.lang.UnsupportedOperationException"/>
+    <fullyQualifiedTypeName name="org.hibernate.validator.constraints.Length"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotEmpty"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="com.carlosdev.dto.ClienteNewDTO"/>
+    <fullyQualifiedTypeName name="com.carlosdev.domain.Cliente"/>
+    <fullyQualifiedTypeName name="com.carlosdev.domain.enums.TipoCliente"/>
+    <fullyQualifiedTypeName name="com.carlosdev.domain.Endereco"/>
+    <fullyQualifiedTypeName name="com.carlosdev.domain.Cidade"/>
+    <fullyQualifiedTypeName name="com.carlosdev.repository.EnderecoRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>

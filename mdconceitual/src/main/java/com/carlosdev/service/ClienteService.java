@@ -45,7 +45,7 @@ public class ClienteService {
 	
 
 	
-	
+	@Transactional
 	public Cliente insert(Cliente obj) {
 		obj.setId(null);
 		

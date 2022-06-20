@@ -48,6 +48,7 @@ public class ClienteController {
 	// METODO DTO QUE SALVA VARIAS INFORMAÇÕES NO BANCO
 	
 
+	
 	@PostMapping
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objClienteDTO){
 		Cliente objCliente = cliService.fromDTO(objClienteDTO);
