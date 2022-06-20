@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,6 +33,8 @@ public class Cliente implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	
+	@Column(unique = true)
 	private String email;
 	private String cpfOuCnpj;
 	// TIPO CLIENTE VAI RECEBER UM NUMERO INTEIRO
@@ -45,7 +48,7 @@ public class Cliente implements Serializable{
 	private List<Pedido> pedidos = new ArrayList<>();
 	
 	 
-	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)// A OPERAÇÃO QUE AFETAR O CLIENTE VAI AFETAR O ENDEREÇO
+	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)// A OPERAÇÃO QUE AFETAR O CLIENTE VAI AFETAR O ENDEREÇO 	 	 	
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	// VOU CRIAR UMA LISTA DE TELEFONES COM A COLEÇÃO "SET" QUE N ACEITA REPETIÇÕES
