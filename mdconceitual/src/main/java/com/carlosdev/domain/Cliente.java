@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -44,7 +45,7 @@ public class Cliente implements Serializable{
 	private List<Pedido> pedidos = new ArrayList<>();
 	
 	 
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)// A OPERAÇÃO QUE AFETAR O CLIENTE VAI AFETAR O ENDEREÇO
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	// VOU CRIAR UMA LISTA DE TELEFONES COM A COLEÇÃO "SET" QUE N ACEITA REPETIÇÕES
