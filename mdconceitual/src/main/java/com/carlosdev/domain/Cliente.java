@@ -70,7 +70,7 @@ public class Cliente implements Serializable{
 		this.setEmail(email);
 		this.cpfOuCnpj = cpfOuCnpj;
 		// TIPO CLIENTE VAI PASSAR O CODIGO
-		this.tipoCliente = tipoCliente.getCod();
+		this.tipoCliente = (tipoCliente==null) ? null : tipoCliente.getCod();
 	}
 
 	

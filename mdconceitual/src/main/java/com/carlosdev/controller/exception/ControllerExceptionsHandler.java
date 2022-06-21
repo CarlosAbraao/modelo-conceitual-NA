@@ -1,9 +1,9 @@
 package com.carlosdev.controller.exception;
 
-import java.lang.reflect.Field;
-
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.JDBCException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -45,7 +45,17 @@ public class ControllerExceptionsHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
 	}
 	
-	
+	@ExceptionHandler(JDBCException.class)
+
+	public ResponseEntity<StandardError> JdbcSQLException(JDBCException e, HttpServletResponse request){
+
+	ValidationError err = new ValidationError(HttpStatus.BAD_REQUEST.value(),
+
+	"Email existente na atualização",System.currentTimeMillis());
+
+	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+
+	}
 
 	}
 		

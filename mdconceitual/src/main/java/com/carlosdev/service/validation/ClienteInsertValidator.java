@@ -17,7 +17,7 @@ import com.carlosdev.service.validation.utils.BR;
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {
 	
-	// PUXANDO O EMAIL DO BANCO DE DADOS PARA VER SE O EMAIL EXISTE
+	// PUXANDO O EMAIL DO BANCO DE DADOS PARA VER SE O EMAIL EXISTE	
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
@@ -27,6 +27,7 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 
 	@Override
 	public boolean isValid(ClienteNewDTO objDto, ConstraintValidatorContext context) {
+		
 		List<FieldMessage> list = new ArrayList<>();
 
 		// inclua os testes aqui, inserindo erros na lista
@@ -42,7 +43,7 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 		
 		
 		Cliente aux = clienteRepository.findByEmail(objDto.getEmail());
-		if(aux == null ) {
+		if(aux != null ) {
 			list.add(new FieldMessage("email", "email ja existente"));
 			
 		}
