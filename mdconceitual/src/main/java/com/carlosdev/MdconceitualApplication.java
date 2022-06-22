@@ -82,14 +82,40 @@ public class MdconceitualApplication implements CommandLineRunner {
 		Produto prod1 = new Produto(null, "Computador", 2400.00);
 		Produto prod2 = new Produto (null, "Impressora", 800.00);
 		Produto prod3 = new Produto (null, "Mouse", 80.00);
+		Produto prod4= new Produto(null, "Mesa de Escritório", 500.00);
+		Produto prod5 = new Produto (null, "Toalha", 45.00);
+		Produto prod6 = new Produto (null, "Colcha", 90.00);
+		Produto prod7 = new Produto(null, "Tv Philco", 3000.00);
+		Produto prod8 = new Produto (null, "Roçadeira", 387.00);
+		Produto prod9 = new Produto (null, "Abajour", 19.00);
+		Produto prod10 = new Produto(null, "Cama Casal", 2400.00);
+		Produto prod11 = new Produto (null, "Shampoo", 15.00);
+		Produto prod12 = new Produto (null, "Hd Kingstone", 350.00);
+		Produto prod13 = new Produto (null, "Cadeira Gamer", 850.00);
 		
-		cat1.getProdutos().addAll(Arrays.asList(prod1, prod2, prod3));
-		cat2.getProdutos().addAll(Arrays.asList(prod2));
+		cat1.getProdutos().addAll(Arrays.asList(prod1, prod2, prod3, prod12, prod13));
+		cat2.getProdutos().addAll(Arrays.asList(prod7, prod8,prod9));
+		cat3.getProdutos().addAll(Arrays.asList(prod4,prod5, prod6,prod10));
+		cat5.getProdutos().addAll(Arrays.asList(prod11));
+		
 		
 		
 		prod1.getCategorias().addAll(Arrays.asList(cat1));
-		prod2.getCategorias().addAll(Arrays.asList(cat1,cat2));
+		prod2.getCategorias().addAll(Arrays.asList(cat1));
 		prod3.getCategorias().addAll(Arrays.asList(cat1));
+		prod12.getCategorias().addAll(Arrays.asList(cat1));
+		prod13.getCategorias().addAll(Arrays.asList(cat1));
+		prod7.getCategorias().addAll(Arrays.asList(cat2));
+		prod8.getCategorias().addAll(Arrays.asList(cat2));
+		prod9.getCategorias().addAll(Arrays.asList(cat2));
+		prod4.getCategorias().addAll(Arrays.asList(cat3));
+		prod5.getCategorias().addAll(Arrays.asList(cat3));
+		prod6.getCategorias().addAll(Arrays.asList(cat3));
+		prod10.getCategorias().addAll(Arrays.asList(cat3));
+		prod11.getCategorias().addAll(Arrays.asList(cat5));
+		
+		
+		
 		
 		// POPULANDO ESTADO 
 		
