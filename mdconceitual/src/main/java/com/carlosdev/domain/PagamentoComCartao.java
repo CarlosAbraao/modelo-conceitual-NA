@@ -1,13 +1,13 @@
 package com.carlosdev.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 
 import com.carlosdev.domain.enums.EstadoPagamento;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 
 @Entity
+@JsonTypeName("pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento {
 
 	private static final long serialVersionUID = 1L;

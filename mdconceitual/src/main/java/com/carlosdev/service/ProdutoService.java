@@ -26,6 +26,9 @@ public class ProdutoService {
 	@Autowired
 	private CategoriaRepository categoriaRepository ;
 	
+	@Autowired
+	private ProdutoRepository produtoRepository ;
+	
 	
 	public Produto busca(Integer id) {
 		
@@ -42,5 +45,13 @@ public class ProdutoService {
 		return pedidoRepo.search(nome, categorias, pageRequest);
 	}
 	
+	
+public Produto find(Integer id) {
+		
+		Optional<Produto> objProd = produtoRepository.findById(id);
+		
+		return objProd.orElseThrow(()-> new ObjectNotFoundException(
+				"Objeto não encontrado! id: " +id + ",Tipo: "+ Produto.class.getName()) );
+	}
 
 }
